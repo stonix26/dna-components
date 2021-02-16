@@ -1,137 +1,80 @@
 import React from 'react';
-import './App.css';
+import { Alert, Button, Card, CardBody } from './commons';
 
 function App() {
   return (
-    <>
-      <figure className='md:flex bg-gray-100 rounded-xl p-8 md:p-0'>
-        <img
-          className='w-32 h-32 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto'
-          src='https://tailwindcss.com/_next/static/media/sarah-dayan.a8ff3f1095a58085a82e3bb6aab12eb2.jpg'
-          alt=''
-          width='384'
-          height='512'
-        />
-        <div className='pt-6 md:p-8 text-center md:text-left space-y-4'>
-          <blockquote>
-            <p className='text-lg font-semibold'>
-              “Tailwind CSS is the only framework that I've seen scale on large
-              teams. It’s easy to customize, adapts to any design, and the build
-              size is tiny.”
-            </p>
-          </blockquote>
-          <figcaption className='font-medium'>
-            <div className='text-cyan-600'>Sarah Dayan</div>
-            <div className='text-gray-500'>Staff Engineer, Algolia</div>
-          </figcaption>
-        </div>
-      </figure>
-      <div className='flex'>
-        <div className='flex-none w-48 relative'>
-          <img
-            src='https://tailwindcss.com/_next/static/media/classic-utility-jacket.0f108046e151c8576017eaf383406fe6.jpg'
-            alt=''
-            className='absolute inset-0 w-full h-full object-cover'
-          />
-        </div>
-        <form className='flex-auto p-6'>
-          <div className='flex flex-wrap'>
-            <h1 className='flex-auto text-xl font-semibold'>
-              Classic Utility Jacket
-            </h1>
-            <div className='text-xl font-semibold text-gray-500'>$110.00</div>
-            <div className='w-full flex-none text-sm font-medium text-gray-500 mt-2'>
-              In stock
-            </div>
-          </div>
-          <div className='flex items-baseline mt-4 mb-6'>
-            <div className='space-x-2 flex'>
-              <label>
-                <input
-                  className='w-9 h-9 flex items-center justify-center bg-gray-100 rounded-lg'
-                  name='size'
-                  type='radio'
-                  value='xs'
-                  checked
-                />
-                XS
-              </label>
-              <label>
-                <input
-                  className='w-9 h-9 flex items-center justify-center'
-                  name='size'
-                  type='radio'
-                  value='s'
-                />
-                S
-              </label>
-              <label>
-                <input
-                  className='w-9 h-9 flex items-center justify-center'
-                  name='size'
-                  type='radio'
-                  value='m'
-                />
-                M
-              </label>
-              <label>
-                <input
-                  className='w-9 h-9 flex items-center justify-center'
-                  name='size'
-                  type='radio'
-                  value='l'
-                />
-                L
-              </label>
-              <label>
-                <input
-                  className='w-9 h-9 flex items-center justify-center'
-                  name='size'
-                  type='radio'
-                  value='xl'
-                />
-                XL
-              </label>
-            </div>
-            <div className='ml-auto text-sm text-gray-500 underline'>
-              Size Guide
-            </div>
-          </div>
-          <div className='flex space-x-3 mb-4 text-sm font-medium'>
-            <div className='flex-auto flex space-x-3'>
-              <button
-                className='w-1/2 flex items-center justify-center rounded-md bg-black text-white'
-                type='submit'
-              >
-                Buy now
-              </button>
-              <button
-                className='w-1/2 flex items-center justify-center rounded-md border border-gray-300'
-                type='button'
-              >
-                Add to bag
-              </button>
-            </div>
-            <button
-              className='flex-none flex items-center justify-center w-9 h-9 rounded-md text-gray-400 border border-gray-300'
-              type='button'
-              aria-label='like'
-            >
-              <svg width='20' height='20' fill='currentColor'>
-                <path
-                  fill-rule='evenodd'
-                  clip-rule='evenodd'
-                  d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
-                />
-              </svg>
-            </button>
-          </div>
-          <p className='text-sm text-gray-500'>
-            Free shipping on all continental US orders.
+    <React.Fragment>
+      {/* Alert Component */}
+      <Card className='border border-black m-4 p-3'>
+        <CardBody>
+          <p className='mb-4 font-semibold text-gray-600 dark:text-gray-300'>
+            Alert
           </p>
-        </form>
-      </div>
-    </>
+
+          <p className='text-gray-600 dark:text-gray-400'>
+            type: success, danger, warning, info and neutral (default)
+          </p>
+          <Alert>Lorem ipsum dolor sit</Alert>
+          <Alert type='success'>Lorem ipsum dolor sit</Alert>
+          <Alert type='danger'>Lorem ipsum dolor sit</Alert>
+          <Alert type='warning'>Lorem ipsum dolor sit</Alert>
+          <Alert type='info'>Lorem ipsum dolor sit</Alert>
+          <Alert type='neutral'>Lorem ipsum dolor sit</Alert>
+
+          <p className='mt-4 text-gray-600 dark:text-gray-400'>onClose</p>
+          <Alert type='success' onClose={() => {}}>
+            Lorem ipsum
+          </Alert>
+        </CardBody>
+      </Card>
+
+      {/* Button Component */}
+      <Card className='border border-black m-4 p-3'>
+        <CardBody>
+          <p className='mb-4 font-semibold text-gray-600 dark:text-gray-300'>
+            Button
+          </p>
+
+          <p className='text-gray-600 dark:text-gray-400'>
+            size: larger, large, regular (default) and small
+          </p>
+          <Button size='larger'>Larger</Button>
+          <Button size='large'>Large</Button>
+          <Button>Regular</Button>
+          <Button size='small'>Small</Button>
+
+          <p className='mt-4 text-gray-600 dark:text-gray-400'>
+            layout: primary (default), outline and link
+          </p>
+          <Button>Primary</Button>
+          <Button layout='outline'>Outline</Button>
+          <Button layout='link'>Link</Button>
+
+          <p className='mt-4 text-gray-600 dark:text-gray-400'>Disabled</p>
+          <Button disabled>Primary</Button>
+          <Button disabled layout='outline'>
+            Outline
+          </Button>
+          <Button disabled layout='link'>
+            Link
+          </Button>
+
+          <p className='mt-4 text-gray-600 dark:text-gray-400'>Block</p>
+          <Button block>Primary</Button>
+          <Button block layout='outline'>
+            Outline
+          </Button>
+          <Button block layout='link'>
+            Link
+          </Button>
+
+          <p className='mt-4 text-gray-600 dark:text-gray-400'>Tag</p>
+          <Button tag='a' href='#'>
+            Primary
+          </Button>
+        </CardBody>
+      </Card>
+    </React.Fragment>
   );
 }
 
